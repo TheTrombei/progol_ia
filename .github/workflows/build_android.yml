@@ -1,0 +1,40 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Compilar ProgolIA.apk para Android
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Configurar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Instalar dependencias
+        run: flutter pub get
+
+      - name: Compilar APK en modo Release
+        run: flutter build apk --release
+
+      - name: Subir artefacto descargable ProgolIA.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: ProgolIA-Android-APK
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 14

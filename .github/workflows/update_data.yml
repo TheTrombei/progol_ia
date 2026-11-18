@@ -1,0 +1,48 @@
+name: Actualizar Quinielas Progol IA
+
+on:
+  schedule:
+    # Lunes a las 14:00 UTC (8:00 AM CDMX) - Cartelera y resultados Media Semana
+    - cron: '0 14 * * 1'
+    # Jueves a las 14:00 UTC (8:00 AM CDMX) - Cartelera Fin de Semana Progol
+    - cron: '0 14 * * 4'
+  workflow_dispatch: # Permite ejecución manual desde la pestaña 'Actions' en GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  update-progol-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Ejecutar script de análisis con Gemini IA
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python scripts/update_progol.py
+
+      - name: Guardar cambios y commit automático
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add progol_data.json assets/progol_data.json
+          
+          if git diff --staged --quiet; then
+            echo "No se detectaron cambios en progol_data.json."
+          else
+            git commit -m "chore(data): actualización automática de quinielas y pronósticos IA [skip ci]"
+            git push
+            echo "Datos actualizados y subidos exitosamente a GitHub."
+          fi

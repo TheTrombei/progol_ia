@@ -1,42 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'providers/archive_provider.dart';
-import 'providers/theme_provider.dart';
-import 'views/home_adaptive_view.dart';
+import 'package:flutter/services.dart';
+import 'services/progol_service.dart';
+import 'theme/app_theme.dart';
+import 'views/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final themeProvider = ThemeProvider();
-  final archiveProvider = ArchiveProvider();
-
-  // Initialize both providers asynchronously
-  await themeProvider.init();
-  await archiveProvider.init();
-
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: themeProvider),
-        ChangeNotifierProvider.value(value: archiveProvider),
-      ],
-      child: const CaliopeApp(),
+  // Configurar barra de estado y navegación transparente para Modo Oscuro nativo
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: AppTheme.background,
+      systemNavigationBarIconBrightness: Brightness.light,
     ),
   );
+
+  final progolService = ProgolService();
+
+  runApp(ProgolIaApp(progolService: progolService));
 }
 
-class CaliopeApp extends StatelessWidget {
-  const CaliopeApp({super.key});
+class ProgolIaApp extends StatelessWidget {
+  final ProgolService progolService;
+
+  const ProgolIaApp({
+    super.key,
+    required this.progolService,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Provider.of<ThemeProvider>(context);
-
     return MaterialApp(
-      title: 'Calíope — Estudio Poético & Archivo',
+      title: 'Progol IA',
       debugShowCheckedModeBanner: false,
-      theme: theme.themeData,
-      home: const HomeAdaptiveView(),
+      themeMode: ThemeMode.dark, // Modo Oscuro por defecto
+      theme: AppTheme.darkTheme,
+      darkTheme: AppTheme.darkTheme,
+      home: HomeScreen(progolService: progolService),
     );
   }
 }

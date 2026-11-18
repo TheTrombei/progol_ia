@@ -1,0 +1,155 @@
+{
+  "actualizado_en": "2026-11-18T18:22:45.221293+00:00",
+  "progol": {
+    "quiniela": "Progol",
+    "concurso": "2258",
+    "semana": "Jornada 17 / Liguilla",
+    "partidos": [
+      {
+        "numero": 1,
+        "local": "América",
+        "visita": "Cruz Azul",
+        "prediccion": "L"
+      },
+      {
+        "numero": 2,
+        "local": "Tigres UANL",
+        "visita": "Toluca",
+        "prediccion": "E"
+      },
+      {
+        "numero": 3,
+        "local": "Monterrey",
+        "visita": "Pumas UNAM",
+        "prediccion": "L"
+      },
+      {
+        "numero": 4,
+        "local": "Guadalajara",
+        "visita": "Atlas",
+        "prediccion": "L"
+      },
+      {
+        "numero": 5,
+        "local": "Pachuca",
+        "visita": "León",
+        "prediccion": "E"
+      },
+      {
+        "numero": 6,
+        "local": "Tijuana",
+        "visita": "Santos Laguna",
+        "prediccion": "L"
+      },
+      {
+        "numero": 7,
+        "local": "Real Madrid",
+        "visita": "Barcelona",
+        "prediccion": "E"
+      },
+      {
+        "numero": 8,
+        "local": "Atlético de Madrid",
+        "visita": "Sevilla",
+        "prediccion": "L"
+      },
+      {
+        "numero": 9,
+        "local": "Manchester City",
+        "visita": "Liverpool",
+        "prediccion": "E"
+      },
+      {
+        "numero": 10,
+        "local": "Arsenal",
+        "visita": "Chelsea",
+        "prediccion": "L"
+      },
+      {
+        "numero": 11,
+        "local": "Inter de Milán",
+        "visita": "Juventus",
+        "prediccion": "L"
+      },
+      {
+        "numero": 12,
+        "local": "Milan",
+        "visita": "Napoli",
+        "prediccion": "V"
+      },
+      {
+        "numero": 13,
+        "local": "Bayern Múnich",
+        "visita": "Bayer Leverkusen",
+        "prediccion": "L"
+      },
+      {
+        "numero": 14,
+        "local": "PSG",
+        "visita": "Mónaco",
+        "prediccion": "L"
+      }
+    ]
+  },
+  "media_semana": {
+    "quiniela": "Progol Media Semana",
+    "concurso": "712",
+    "semana": "Cuartos / Jornada Intersemanal",
+    "partidos": [
+      {
+        "numero": 1,
+        "local": "Toluca",
+        "visita": "América",
+        "prediccion": "E"
+      },
+      {
+        "numero": 2,
+        "local": "Cruz Azul",
+        "visita": "Tigres UANL",
+        "prediccion": "L"
+      },
+      {
+        "numero": 3,
+        "local": "Guadalajara",
+        "visita": "Monterrey",
+        "prediccion": "V"
+      },
+      {
+        "numero": 4,
+        "local": "Pumas UNAM",
+        "visita": "Pachuca",
+        "prediccion": "L"
+      },
+      {
+        "numero": 5,
+        "local": "Real Madrid",
+        "visita": "Bayern Múnich",
+        "prediccion": "L"
+      },
+      {
+        "numero": 6,
+        "local": "PSG",
+        "visita": "Arsenal",
+        "prediccion": "E"
+      },
+      {
+        "numero": 7,
+        "local": "Liverpool",
+        "visita": "Bayer Leverkusen",
+        "prediccion": "L"
+      },
+      {
+        "numero": 8,
+        "local": "Barcelona",
+        "visita": "Inter de Milán",
+        "prediccion": "L"
+      },
+      {
+        "numero": 9,
+        "local": "Borussia Dortmund",
+        "visita": "Juventus",
+        "prediccion": "V"
+      }
+    ]
+  }
+}
